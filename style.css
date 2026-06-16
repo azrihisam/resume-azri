@@ -558,6 +558,96 @@ code {
     line-height: 1.2;
 }
 
+/* Projects Section */
+.projects-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 4rem;
+}
+
+.project-card {
+    background-color: var(--card-bg);
+    backdrop-filter: blur(10px);
+    border: 1px solid var(--card-border);
+    border-radius: 12px;
+    overflow: hidden;
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    transition: var(--transition);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+}
+
+.project-card.reverse-layout {
+    grid-template-columns: 1fr 1.2fr;
+}
+
+.project-card:hover {
+    border-color: rgba(6, 182, 212, 0.4);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5), 0 0 20px rgba(6, 182, 212, 0.1);
+    transform: translateY(-5px);
+}
+
+.project-img-container {
+    overflow: hidden;
+    background-color: var(--secondary-bg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.project-img-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: var(--transition);
+    opacity: 0.8;
+}
+
+.project-card:hover .project-img-container img {
+    transform: scale(1.05);
+    opacity: 1;
+}
+
+.project-content {
+    padding: 3rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.project-title {
+    font-size: 1.6rem;
+    margin-bottom: 1.5rem;
+}
+
+.project-title a:hover {
+    color: var(--accent-color);
+    text-shadow: 0 0 10px var(--accent-glow);
+}
+
+.project-summary {
+    color: var(--text-color);
+    margin-bottom: 2rem;
+    font-size: 1.05rem;
+    line-height: 1.7;
+}
+
+.tech-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.tech-tags span {
+    background: transparent;
+    color: var(--accent-color);
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-family: var(--font-mono);
+    border: 1px solid rgba(6, 182, 212, 0.3);
+}
+
 /* Education Section */
 .education-grid {
     display: grid;
@@ -757,5 +847,17 @@ code {
     
     .timeline-dot {
         left: 13px;
+    }
+
+    .project-card, .project-card.reverse-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .project-card.reverse-layout .project-img-container {
+        order: -1;
+    }
+
+    .project-content {
+        padding: 2rem;
     }
 }
