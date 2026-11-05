@@ -28,9 +28,12 @@
             <a href="#" class="logo" aria-label="Home">AZRI<span class="accent">HISAM</span></a>
             <ul class="nav-links">
                 <li><a href="#about">About</a></li>
+                <li><a href="#competencies">Competencies</a></li>
                 <li><a href="#skills">Skills</a></li>
+                <li><a href="#certifications">Certifications</a></li>
                 <li><a href="#experience">Experience</a></li>
                 <li><a href="#projects">Projects</a></li>
+                <li><a href="#insights">Insights</a></li>
                 <li><a href="#contact" class="btn-small">Contact</a></li>
                 <li>
                     <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
@@ -56,6 +59,11 @@
                     <span class="status-dot"></span>
                     Open to Opportunities & Building with AI
                 </div>
+                <a href="#certifications" class="hero-cert-pill animate-up delay-1" aria-label="View ISTQB Certification">
+                    <i class="fas fa-shield-alt"></i>
+                    <span>ISTQB® Certified Tester (CTFL v4.0)</span>
+                    <span class="verified-dot"><i class="fas fa-check"></i></span>
+                </a>
                 <h1 class="hero-headline animate-up delay-2">
                     I break software<br>
                     so <span class="highlight">yours never has to</span>
@@ -83,6 +91,30 @@
         </div>
     </header>
 
+    <section id="competencies" class="section bg-alt">
+        <div class="container">
+            <h2 class="section-title">Core Competencies</h2>
+            <div class="competencies-grid">
+                <div class="competency-card">
+                    <div class="comp-icon"><i class="fas fa-server"></i></div>
+                    <h3>API Testing Master</h3>
+                    <p>Expert in RESTful API validation using Postman, ensuring robust backend integrations before UI development.</p>
+                </div>
+                <div class="competency-card">
+                    <div class="comp-icon"><i class="fas fa-globe"></i></div>
+                    <h3>Cross-Border UAT</h3>
+                    <p>Proven track record of managing global UAT sessions, aligning stakeholders across multiple countries.</p>
+                </div>
+                <div class="competency-card">
+                    <div class="comp-icon"><i class="fas fa-robot"></i></div>
+                    <h3>AI-Driven QA</h3>
+                    <p>Leveraging LLMs and prompt engineering to automate test plan generation and optimize testing workflows.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
     <section id="about" class="section">
         <div class="container">
             <h2 class="section-title">About Me</h2>
@@ -103,6 +135,7 @@
 const tester = {
   name: "Muhamad Azri Hisam",
   specialization: "Manual, API & AI-Augmented Testing",
+  certification: "ISTQB® CTFL v4.0 (ASTQB)",
   tools: ["Postman", "JIRA", "Oracle SQL", "Prompt Engineering"],
   status: "Building multiple AI projects"
 };
@@ -159,6 +192,121 @@ const tester = {
                         <span>Microsoft Excel</span>
                         <span>Figma</span>
                         <span>Zeplin</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="certifications" class="section">
+        <div class="container">
+            <div class="section-header-row">
+                <div>
+                    <h2 class="section-title">Certifications &amp; Credentials</h2>
+                    <p class="section-subtitle">Official industry qualifications validating standardized software quality engineering methodologies and defect prevention rigor.</p>
+                </div>
+                <div class="cert-status-pill">
+                    <span class="pulse-emerald"></span> Verified Active
+                </div>
+            </div>
+
+            <div class="cert-showcase">
+                <div class="cert-showcase-grid">
+                    <!-- Left Column: Details & Competencies -->
+                    <div class="cert-info-col">
+                        <div class="cert-authority-badges">
+                            <span class="authority-badge astqb-badge">
+                                <i class="fas fa-certificate"></i> ASTQB Official U.S. Board
+                            </span>
+                            <span class="authority-badge istqb-badge">
+                                <i class="fas fa-globe"></i> ISTQB® International
+                            </span>
+                            <span class="authority-badge lifetime-badge">
+                                <i class="fas fa-infinity"></i> Lifetime Validity
+                            </span>
+                        </div>
+
+                        <div class="cert-headline-group">
+                            <h3 class="cert-title">Certified Tester Foundation Level</h3>
+                            <div class="cert-syllabus-tag">
+                                <span class="syllabus-version">CTFL Syllabus v4.0</span>
+                                <span class="tag-separator">•</span>
+                                <span class="tag-desc">Standardized Quality Engineering</span>
+                            </div>
+                        </div>
+
+                        <p class="cert-summary">
+                            Attests certified mastery of standardized testing principles, test analysis and design techniques (black-box, white-box, and experience-based), defect lifecycle management, and seamless quality assurance integration within modern Agile and CI/CD pipelines.
+                        </p>
+
+                        <div class="cert-meta-grid">
+                            <div class="cert-meta-item">
+                                <span class="meta-label">Credential ID</span>
+                                <div class="meta-value-row">
+                                    <span class="meta-value font-mono" id="certIdValue">26-CTFL-02144-USA</span>
+                                    <button class="copy-id-btn" id="copyCertIdBtn" aria-label="Copy Credential ID" title="Copy Credential ID">
+                                        <i class="far fa-copy" id="copyCertIdIcon"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="cert-meta-item">
+                                <span class="meta-label">Certified Date</span>
+                                <span class="meta-value">November 3, 2026</span>
+                            </div>
+                            <div class="cert-meta-item">
+                                <span class="meta-label">Accreditation Body</span>
+                                <span class="meta-value">ASTQB / ISTQB®</span>
+                            </div>
+                        </div>
+
+                        <div class="cert-competencies-block">
+                            <h4 class="competencies-heading"><i class="fas fa-check-double"></i> Core Tested Competencies</h4>
+                            <div class="competencies-tags">
+                                <span>Equivalence Partitioning &amp; BVA</span>
+                                <span>Decision Table &amp; State Transition</span>
+                                <span>Static Code &amp; Requirement Review</span>
+                                <span>Risk-Based Test Prioritization</span>
+                                <span>Agile QA &amp; DevOps Integration</span>
+                                <span>Defect Triage &amp; Root Cause Analysis</span>
+                            </div>
+                        </div>
+
+                        <div class="cert-actions-row">
+                            <button class="btn btn-primary view-cert-btn" id="openCertModalBtn">
+                                <i class="fas fa-expand"></i> View Certificate
+                            </button>
+                            <a href="https://atsqa.org/certified-testers" target="_blank" rel="noopener noreferrer" class="btn btn-outline cert-verify-btn">
+                                <i class="fas fa-external-link-alt"></i> Verify on ASTQB Register
+                            </a>
+                            <a href="ctfl-certificate.jpg" download="Muhamad-Azri-CTFL-Certificate.jpg" class="cert-download-link" title="Download High-Res Certificate">
+                                <i class="fas fa-download"></i> Download Copy
+                            </a>
+                        </div>
+                        <div id="copyFeedbackToast" class="copy-toast">
+                            <i class="fas fa-check"></i> Credential ID copied to clipboard!
+                        </div>
+                    </div>
+
+                    <!-- Right Column: Interactive Certificate Card -->
+                    <div class="cert-preview-col">
+                        <div class="cert-preview-card" id="certPreviewCard">
+                            <div class="cert-image-wrapper">
+                                <img src="ctfl-certificate.jpg" alt="ISTQB CTFL Certificate - Muhamad Azri Bin Hisam" loading="lazy" class="lightbox-trigger">
+                                <div class="cert-hover-overlay">
+                                    <div class="zoom-circle">
+                                        <i class="fas fa-search-plus"></i>
+                                    </div>
+                                    <span class="hover-text">Click to Inspect Full Certificate</span>
+                                    <span class="hover-subtext">Certified by Margaret Murry, Director ASTQB</span>
+                                </div>
+                                <div class="cert-seal-badge">
+                                    <i class="fas fa-stamp"></i> ASTQB Corporate Seal
+                                </div>
+                            </div>
+                            <div class="cert-preview-caption">
+                                <i class="fas fa-mouse-pointer"></i> Click preview to inspect full-resolution certificate
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -437,6 +585,33 @@ const tester = {
         </div>
     </section>
 
+    <section id="insights" class="section">
+        <div class="container">
+            <h2 class="section-title">Testing Insights</h2>
+            <div class="insights-grid">
+                <div class="insight-card" style="cursor:pointer;" data-badge="AI in QA" data-title="How I Use AI for Test Case Generation" data-body="<p>Integrating LLMs into QA workflows isn't just about speed; it's about uncovering edge cases human testers might miss.</p><p>To put this into practice, I developed a custom <strong>Test Case Generator Web Application</strong> designed specifically to accelerate the testing lifecycle. One of its most powerful features is the ability to automatically generate comprehensive test scenarios directly from <strong>Pull Request (PR) changes, Acceptance Criteria, or Bug Reports</strong>.</p><p>By simply inputting the requirement or code diff, the application uses advanced prompt engineering to instantly output a robust baseline of test cases. This drastically reduces manual test design time and allows me to focus my efforts on exploratory testing and complex business logic.</p><p>AI is a tool that augments the QA process, making us faster and more thorough, rather than replacing the critical thinking required for high-quality software delivery.</p>">
+                    <div class="insight-badge">AI in QA</div>
+                    <h3 class="insight-title">How I Use AI for Test Case Generation</h3>
+                    <p class="insight-excerpt">I developed a custom Test Case Generator Web App that uses AI to automatically create test scenarios from PR changes and Acceptance Criteria.</p>
+                    <span class="read-more">Read More <i class="fas fa-arrow-right"></i></span>
+                </div>
+                <div class="insight-card" style="cursor:pointer;" data-badge="API Testing" data-title="Why API Validation is Critical" data-body="<p>Finding bugs at the UI level is expensive. My strategy focuses on rigorous API testing to ensure core logic is flawless before frontend development even begins.</p><p>Using tools like Postman, I validate status codes, response times, data schemas, and security headers. If the foundation (the API) is broken, the entire house (the UI) will eventually collapse. Catching data-layer issues early reduces technical debt and speeds up the overall sprint velocity.</p>">
+                    <div class="insight-badge">API Testing</div>
+                    <h3 class="insight-title">Why API Validation is Critical</h3>
+                    <p class="insight-excerpt">Finding bugs at the UI level is expensive. My strategy focuses on rigorous API testing to ensure core logic is flawless.</p>
+                    <span class="read-more">Read More <i class="fas fa-arrow-right"></i></span>
+                </div>
+                <div class="insight-card" style="cursor:pointer;" data-badge="Methodology" data-title="Streamlining UAT Coordination" data-body="<p>Managing UAT across different time zones requires clear communication, robust test data, and a user-centric approach.</p><p>When I led client demos across 4 countries for UOB Bank, the key to success was preparation. End-users don't test like QA engineers; they test like customers. I ensure that UAT environments are stable, test data mimics production realistically, and that we provide clear, step-by-step guides so stakeholders can validate the system confidently and sign off without friction.</p>">
+                    <div class="insight-badge">Methodology</div>
+                    <h3 class="insight-title">Streamlining UAT Coordination</h3>
+                    <p class="insight-excerpt">Managing UAT across different time zones requires clear communication, robust test data, and a user-centric approach.</p>
+                    <span class="read-more">Read More <i class="fas fa-arrow-right"></i></span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
 
 
     <section id="education" class="section">
@@ -510,6 +685,18 @@ const tester = {
         <span class="lightbox-close">&times;</span>
         <img class="lightbox-content" id="lightbox-img">
         <div id="lightbox-caption"></div>
+    </div>
+
+    <!-- Insight Modal -->
+    <div id="insightModal" class="insight-modal">
+        <div class="insight-modal-content">
+            <span class="insight-modal-close">&times;</span>
+            <div class="insight-badge" id="insightModalBadge">Badge</div>
+            <h3 class="insight-title" id="insightModalTitle" style="font-size: 1.8rem; margin-top: 1rem;">Title</h3>
+            <div class="insight-modal-body" id="insightModalBody">
+                <p>Content goes here...</p>
+            </div>
+        </div>
     </div>
 
     <script src="script.js"></script>

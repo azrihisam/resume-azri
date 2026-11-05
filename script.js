@@ -67,7 +67,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }, observerOptions);
 
     const animateElements = document.querySelectorAll(
-        '.section-title, .about-text p, .skill-category, .timeline-item, .portfolio-card, .cert-card, .testimonial-card, .blog-card, .edu-card, .contact-card'
+        '.section-title, .about-text p, .skill-category, .cert-showcase, .timeline-item, .portfolio-card, .cert-card, .testimonial-card, .blog-card, .edu-card, .contact-card'
     );
 
     animateElements.forEach(el => {
@@ -166,21 +166,111 @@ document.addEventListener('DOMContentLoaded', () => {
     const triggers = document.querySelectorAll('.lightbox-trigger');
 
     if (lightbox) {
-        triggers.forEach(img => {
-            img.addEventListener('click', function() {
+        triggers.forEach(trigger => {
+            trigger.addEventListener('click', function() {
                 lightbox.style.display = 'block';
-                lightboxImg.src = this.src;
-                captionText.innerHTML = this.alt;
+                const imgSrc = this.getAttribute('data-img') || this.src || this.querySelector('img')?.src;
+                const caption = this.getAttribute('data-caption') || this.alt || this.querySelector('img')?.alt || '';
+                lightboxImg.src = imgSrc;
+                captionText.innerHTML = caption;
+                document.body.style.overflow = 'hidden';
             });
         });
 
+        const openCertModalBtn = document.getElementById('openCertModalBtn');
+        if (openCertModalBtn) {
+            openCertModalBtn.addEventListener('click', () => {
+                lightbox.style.display = 'block';
+                lightboxImg.src = 'ctfl-certificate.jpg';
+                captionText.innerHTML = 'ISTQB® Certified Tester Foundation Level (CTFL v4.0) — Muhamad Azri Bin Hisam (ASTQB)';
+                document.body.style.overflow = 'hidden';
+            });
+        }
+
         if (closeBtn) {
-            closeBtn.addEventListener('click', () => lightbox.style.display = 'none');
+            closeBtn.addEventListener('click', () => {
+                lightbox.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            });
         }
         
         window.addEventListener('click', (e) => {
             if (e.target === lightbox) {
                 lightbox.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            }
+        });
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && lightbox.style.display === 'block') {
+                lightbox.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            }
+        });
+    }
+
+    // Copy Certificate ID to Clipboard
+    const copyCertIdBtn = document.getElementById('copyCertIdBtn');
+    const copyCertIdIcon = document.getElementById('copyCertIdIcon');
+    const copyFeedbackToast = document.getElementById('copyFeedbackToast');
+    const certIdValue = document.getElementById('certIdValue');
+
+    if (copyCertIdBtn && certIdValue) {
+        copyCertIdBtn.addEventListener('click', () => {
+            const textToCopy = certIdValue.textContent.trim();
+            navigator.clipboard.writeText(textToCopy).then(() => {
+                if (copyCertIdIcon) {
+                    copyCertIdIcon.className = 'fas fa-check';
+                    copyCertIdIcon.style.color = 'var(--success-color)';
+                }
+                if (copyFeedbackToast) {
+                    copyFeedbackToast.classList.add('show');
+                }
+                setTimeout(() => {
+                    if (copyCertIdIcon) {
+                        copyCertIdIcon.className = 'far fa-copy';
+                        copyCertIdIcon.style.color = '';
+                    }
+                    if (copyFeedbackToast) {
+                        copyFeedbackToast.classList.remove('show');
+                    }
+                }, 2500);
+            }).catch(err => {
+                console.error('Failed to copy: ', err);
+            });
+        });
+    }
+
+    // Insight Modal Logic
+    const insightModal = document.getElementById('insightModal');
+    const insightModalClose = document.querySelector('.insight-modal-close');
+    const insightModalBadge = document.getElementById('insightModalBadge');
+    const insightModalTitle = document.getElementById('insightModalTitle');
+    const insightModalBody = document.getElementById('insightModalBody');
+    const insightCards = document.querySelectorAll('.insight-card');
+
+    if (insightModal) {
+        insightCards.forEach(card => {
+            card.addEventListener('click', function() {
+                insightModal.style.display = 'block';
+                insightModalBadge.textContent = this.getAttribute('data-badge');
+                insightModalTitle.textContent = this.getAttribute('data-title');
+                insightModalBody.innerHTML = this.getAttribute('data-body');
+                document.body.style.overflow = 'hidden'; // Prevent scrolling
+            });
+        });
+
+        if (insightModalClose) {
+            insightModalClose.addEventListener('click', () => {
+                insightModal.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            });
+        }
+        
+        window.addEventListener('click', (e) => {
+            if (e.target === insightModal) {
+                insightModal.style.display = 'none';
+                document.body.style.overflow = 'auto';
             }
         });
     }
